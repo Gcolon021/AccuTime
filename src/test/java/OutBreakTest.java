@@ -90,7 +90,7 @@ public class OutBreakTest {
 
     @Test
     void ensureDiagRoomsNotConnected() {
-        Room[][] outBreakSizeFive = new Room[][] {
+        Room[][] onlyDiag = new Room[][] {
                 {new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false) },
                 {new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false), new Room(false) },
                 {new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false) },
@@ -103,11 +103,51 @@ public class OutBreakTest {
                 {new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false), new Room(false) }
         };
 
-        outBreak.setIsVisited(new boolean[outBreakSizeFive.length][outBreakSizeFive[0].length]);
-        int outBreakSize = outBreak.determineOutbreakSizeWithoutDiag(outBreakSizeFive, 0, 0);
+
+
+        outBreak.setIsVisited(new boolean[onlyDiag.length][onlyDiag[0].length]);
+        int outBreakSize = outBreak.determineOutbreakSizeWithoutDiag(onlyDiag, 0, 0);
         assertEquals(1, outBreakSize);
 
-        outBreakSize = outBreak.determineOutbreakSizeWithoutDiag(outBreakSizeFive, 1, 1);
+        outBreakSize = outBreak.determineOutbreakSizeWithoutDiag(onlyDiag, 1, 1);
         assertEquals(1, outBreakSize);
+    }
+
+    @Test
+    void checkNbyM2DArray() {
+        Room[][] onlyDiag = new Room[][] {
+                {new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false) },
+                {new Room(true), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false), new Room(false) },
+                {new Room(true), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false) },
+                {new Room(true), new Room(false), new Room(false), new Room(false) },
+                {new Room(false), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false) },
+                {new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false), new Room(false) },
+                {new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(true), new Room(false), new Room(false) },
+                {new Room(false), new Room(true), new Room(false), new Room(false), new Room(false) },
+                {new Room(true), new Room(false), new Room(false) },
+                {new Room(false), new Room(true), new Room(false), new Room(false), new Room(false) }
+        };
+
+        Boolean isOutBreak = this.outBreak.isOutBreak(onlyDiag);
+        assertEquals(Boolean.TRUE, isOutBreak);
+    }
+
+    @Test
+    void checkNbyM2DArrayFromMiddle() {
+        Room[][] onlyDiag = new Room[][] {
+                {new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false) },
+                {new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false) },
+                {new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false) },
+                {new Room(false), new Room(false), new Room(false), new Room(true) },
+                {new Room(false), new Room(false), new Room(false), new Room(true), new Room(true), new Room(false), new Room(false) },
+                {new Room(false), new Room(false), new Room(false), new Room(true), new Room(true), new Room(false), new Room(false) },
+                {new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false), new Room(false) },
+                {new Room(false), new Room(false), new Room(false), new Room(false), new Room(false) },
+                {new Room(false), new Room(false), new Room(false) },
+                {new Room(false), new Room(false), new Room(false), new Room(false), new Room(false) }
+        };
+
+        Boolean isOutBreak = this.outBreak.isOutBreak(onlyDiag);
+        assertEquals(Boolean.TRUE, isOutBreak);
     }
 }

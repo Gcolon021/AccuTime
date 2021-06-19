@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="OutBreakTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-06-19T21:42:45" hostname="DESKTOP-1RJJHO8" time="0.025">
+<testsuite name="OutBreakTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-19T22:13:47" hostname="DESKTOP-1RJJHO8" time="0.014">
   <properties/>
-  <testcase name="isVerticalTrue()" classname="OutBreakTest" time="0.021"/>
-  <testcase name="isNoInfection()" classname="OutBreakTest" time="0.001"/>
-  <testcase name="checkOutBreakSizeFive()" classname="OutBreakTest" time="0.001"/>
-  <testcase name="ensureDiagRoomsNotConnected()" classname="OutBreakTest" time="0.0"/>
-  <testcase name="isHorizontalTrue()" classname="OutBreakTest" time="0.0"/>
+  <testcase name="checkNbyM2DArrayFromMiddle()" classname="OutBreakTest" time="0.014"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
