@@ -19,7 +19,6 @@ public class OutBreak {
                 if(rooms[row][column].isInfected()){
                     sizeOfOutBreak = determineOutbreakSizeWithoutDiag(rooms, row, column);
 
-                    // If we find an 5 or more rooms connected that are infected we have found an outbreak
                     if (sizeOfOutBreak >= 5){
                         return true;
                     }
@@ -47,27 +46,17 @@ public class OutBreak {
             return 0;
         }
 
-        // I need a way to check if I have visited this specific row and column
         if (isVisited[row][column]){
             return 0;
         }
 
-        // if we have now visited this infected location we can set it to true in isVisited
         isVisited[row][column] = Boolean.TRUE;
 
-        // The size of the outbreak of a single room is 1
         int numOfInfected = 1;
 
-        // Top
         numOfInfected += determineOutbreakSizeWithoutDiag(rooms, row - 1, column);
-
-        // Bottom
         numOfInfected += determineOutbreakSizeWithoutDiag(rooms, row + 1, column);
-
-        // right
         numOfInfected += determineOutbreakSizeWithoutDiag(rooms, row, column + 1);
-
-        // left
         numOfInfected += determineOutbreakSizeWithoutDiag(rooms, row, column - 1);
 
 
